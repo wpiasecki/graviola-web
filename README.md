@@ -2,6 +2,7 @@
 
 Página em AngularJS e Bootstrap para visualizar os dados das linhas de onibus com base de dados em JSON e design responsivo.
 
+<<<<<<< HEAD
 Listagem de linhas em tela pequena
 ![01](https://raw.githubusercontent.com/wpiasecki/graviola-web/master/img/01.png)
 
@@ -13,5 +14,14 @@ Listagem de horários
 
 Listagem de horários em tela grande
 ![04](https://raw.githubusercontent.com/wpiasecki/graviola-web/master/img/04.png)
+=======
+Listagem de linhas em tela pequena[01](https://raw.githubusercontent.com/wpiasecki/graviola-web/master/img/01.png)
+
+Filtragem[02](https://raw.githubusercontent.com/wpiasecki/graviola-web/master/img/02.png)
+
+Listagem de horários[03](https://raw.githubusercontent.com/wpiasecki/graviola-web/master/img/03.png)
+
+Listagem de horários em tela grande[04](https://raw.githubusercontent.com/wpiasecki/graviola-web/master/img/04.png)
+>>>>>>> 30216bf518d6c1835828a6576fd9b610807c174e
 
 
