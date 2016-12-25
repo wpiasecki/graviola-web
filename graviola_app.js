@@ -43,7 +43,7 @@
   
   app.directive('buscarLinhas', () => {
     return ($scope, element) => {
-      element.bind('keyup', event => {
+      element.bind('keypress', event => {
         var val = element.val();
         if (val.length >= 3) { $scope.filtrar(); $scope.$apply(); }
         if (val.length == 0) { $scope.limparBusca(); $scope.$apply(); }

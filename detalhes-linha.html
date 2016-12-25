@@ -35,12 +35,12 @@
   
   
   <div class="row" id="{{ ponto.id() }}" ng-repeat="ponto in linha.pontos">
-    <div class="col-xs-4 col-sm-4 col-lg-3 bold">Ponto:</div>
-    <div class="col-xs-8 col-sm-8 col-lg-9 bold">{{ ponto.nome }}</div>
-    <div class="col-xs-4 col-sm-4 col-lg-3 bold">Tipo:</div>
-    <div class="col-xs-8 col-sm-8 col-lg-9 bold">{{ ponto.tipoDia }}</div>
-    <div class="col-xs-4 col-sm-4 col-lg-3 bold">Válido:</div>
-    <div class="col-xs-8 col-sm-8 col-lg-9 bold">{{ ponto.validoAPartirDe }}</div>
+    <div class="col-xs-3 col-sm-4 col-lg-3 bold">Ponto:</div>
+    <div class="col-xs-9 col-sm-8 col-lg-9 bold">{{ ponto.nome }}</div>
+    <div class="col-xs-3 col-sm-4 col-lg-3 bold">Tipo:</div>
+    <div class="col-xs-9 col-sm-8 col-lg-9 bold">{{ ponto.tipoDia }}</div>
+    <div class="col-xs-3 col-sm-4 col-lg-3 bold">Válido:</div>
+    <div class="col-xs-9 col-sm-8 col-lg-9 bold">{{ ponto.validoAPartirDe }}</div>
   
     <div class="col-xs-3 col-sm-2 col-lg-1" ng-repeat="horario in ponto.horarios">
       <div ng-class=" horario.proximo > 0 && 'proxima-linha-' + horario.proximo">
