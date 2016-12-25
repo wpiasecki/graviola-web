@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="graviola_data.js"></script>
+  <script src="graviola_linha_ctrl.js"></script>  
+  <style>
+    .bold { font-weight:bold; }
+    .proximo { border: 1px solid yellow; background-color: yellow; font-weight: bold; }
+  </style>
+  
+</head>
+  
+<body>
+<div class="container-fluid" ng-app="graviola" ng-controller="glinha">
+  <div class="btn-group btn-group-justified">
+    <div class="btn-group" ng-repeat="ponto in pontos">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+        {{ ponto.nome }} <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li ng-repeat="ponto in ponto.pontos">
+          <a href="#{{ ponto.id() }}">{{ ponto.nome }}</a>
+        </li>
+      <ul>
+    </div>
+  </div>
+  
+  
+  <div class="row" id="{{ ponto.id() }}" ng-repeat="ponto in linha.pontos">
+    <div class="col-xs-4 col-sm-4 col-lg-3 bold">Ponto:</div>
+    <div class="col-xs-8 col-sm-8 col-lg-9 bold">{{ ponto.nome }}</div>
+    <div class="col-xs-4 col-sm-4 col-lg-3 bold">Tipo:</div>
+    <div class="col-xs-8 col-sm-8 col-lg-9 bold">{{ ponto.tipoDia }}</div>
+    <div class="col-xs-4 col-sm-4 col-lg-3 bold">Válido:</div>
+    <div class="col-xs-8 col-sm-8 col-lg-9 bold">{{ ponto.validoAPartirDe }}</div>
+  
+    <div class="col-xs-3 col-sm-2 col-lg-1" ng-class="{'proximo': horario.proximo}" ng-repeat="horario in ponto.horarios">
+      {{ horario.tempo }}
+    </div>
+  </div>
+  
+</div>
+</body>
+</html>

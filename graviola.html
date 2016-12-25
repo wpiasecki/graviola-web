@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="graviola_data.js"></script>
+  <script src="graviola_app.js"></script>
+  <style>.table-hover tr { cursor:pointer; }</style>
+</head>
+  
+<body>
+<div class="container-fluid" ng-app="graviola" ng-controller="gc">
+  <h3>graviola-web</h3>
+  <div class="alert alert-warning">ae</div>
+  <div class="row">
+    <div class="col-sm-4 col-lg-2">Busca:</div>
+    <div class="col-sm-8 col-lg-10">
+      <input class="text" type="text" id="busca" ng-name="busca"/>
+    </div>
+  </div>
+
+  <table class="table table-hover">
+    <tr>
+      <th>Código</th>
+      <th>Nome</th>
+    </tr>
+
+    <tr ng-repeat="linha in linhas" ng-click="linha.redirecionar()">
+      <td>{{ linha.codigo }}</td>
+      <td>{{ linha.nome }}</td>
+    </tr>
+  </table>
+  
+</div>
+</body>
+</html>
