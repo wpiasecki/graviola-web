@@ -12,26 +12,34 @@
     $scope.linha = document.linhas.find(linha => linha.codigo == $scope.codigo );
     
     var data = new Date();
-    var horaAtual = { hora: data.getHours(), minuto: data.getMinutes() };
+    var agora = { 
+      hora  : data.getHours(), 
+      minuto: data.getMinutes()
+    };
     
     $scope.linha.pontos.forEach( ponto => {
       ponto.id = () => ponto.tipoDia + "_" + ponto.nome.replace(/ /g, '_');
-      var nextPontos = 3;
-      ponto.horarios = ponto.horarios.map(horario => {
-        return {
-          tempo   : horario,
-          hora    : parseInt(horario.slice(0, 2)),
-          minuto  : parseInt(horario.slice(3, 5)),
-          get proximo () {
-            return this.hora >= horaAtual.hora &&
-              this.minuto >= horaAtual.minuto &&
-              nextPontos-- > 0;
-          }
+      var maxPontosDestacados = 3;
+      ponto.horarios = ponto.horarios.map( horario => {
+        return new function() {
+          this.tempo   = horario;
+          this.hora    = parseInt( horario.slice(0, 2) );
+          this.minuto  = parseInt( horario.slice(3, 5) ),
+          this.proximo = (() => {
+            if (maxPontosDestacados > 0) {
+              var isHoraAtualAdiantada = this.hora == agora && this.minuto >= agora.minuto;
+              var isHoraAtualPosterior = this.hora > agora.hora;
+              if ( isHoraAtualAdiantada || isHoraAtualPosterior ) {
+                return maxPontosDestacados--;
+              }
+            }
+            return 0;
+          })();
         };
       });
     });
     
-    var filter = (tipoDia) => $scope.linha.pontos.filter(l => l.tipoDia == tipoDia);
+    var filter = (tipoDia) => $scope.linha.pontos.filter( l => l.tipoDia == tipoDia );
     
     $scope.pontos = {
       diaUtil : { nome: 'Dia útil', pontos: filter('DIA_UTIL') },

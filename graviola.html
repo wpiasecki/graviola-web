@@ -13,13 +13,16 @@
 </head>
   
 <body>
-<div class="container-fluid" ng-app="graviola" ng-controller="gc">
+<div class="container" ng-app="graviola" ng-controller="gc" >
   <h3>graviola-web</h3>
-  <div class="alert alert-warning">ae</div>
+  <!--div class="alert alert-warning">ae</div-->
   <div class="row">
-    <div class="col-sm-4 col-lg-2">Busca:</div>
-    <div class="col-sm-8 col-lg-10">
-      <input class="text" type="text" id="busca" ng-name="busca"/>
+    <div class="col-xs-3 col-lg-2">Busca:</div>
+    <div class="col-xs-7 col-lg-9">
+      <input class="text" type="text" id="busca" ng-model="busca" buscar-linhas/>
+    </div>
+    <div class="col-xs-2 col-lg-1">
+      <a href="#" class="glyphicon glyphicon-remove" ng-click="limparBusca()"></a>
     </div>
   </div>
 
