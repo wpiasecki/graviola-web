@@ -27,7 +27,7 @@
           this.minuto  = parseInt( horario.slice(3, 5) ),
           this.proximo = (() => {
             if (maxPontosDestacados > 0) {
-              var isHoraAtualAdiantada = this.hora == agora && this.minuto >= agora.minuto;
+              var isHoraAtualAdiantada = this.hora == agora.hora && this.minuto >= agora.minuto;
               var isHoraAtualPosterior = this.hora > agora.hora;
               if ( isHoraAtualAdiantada || isHoraAtualPosterior ) {
                 return maxPontosDestacados--;
